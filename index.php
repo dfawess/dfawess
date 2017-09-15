@@ -5,4 +5,4 @@ $app->initLayout('Centered');
 $button = $app->add('Button');
 $button->set('LUL');
 $button->icon = 'plus';
-$button->link ('www.vk.com/')
+$button->link ('http://www.vk.com/');
