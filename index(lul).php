@@ -2,17 +2,20 @@
 require 'vendor/autoload.php';
 $app = new \atk4\ui\App('index');
 $app->initLayout('Centered');
-$button = $app->layout->add(['Button','REFRESH']);
-$button->link('index(lul)');
 if(isset($_GET['max'])){
   $max = $_GET['max'];
   $min = $_GET['min'];
+  $med=round(($max+$min)/2);
 }else{
   $max=100;
   $min=1;
   $med=round(($max+$min)/2);
 }
-
+$label=$app ->add(['Label','TVOE 4ISLO BOLSHE '.$med.' ?']);
+$button1=$app->add(['Button','DA']);
+$button1->link(['index(lul)','max'=>$max,'min'=>$med]);
+$button2=$app->add(['Button','NEJ']);
+$button2->link(['index(lul)','max'=>$med,'min'=>$min]);
 
 
 
