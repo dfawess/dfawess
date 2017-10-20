@@ -2,21 +2,16 @@
 require 'vendor/autoload.php';
 $app = new \atk4\ui\App('index');
 $app->initLayout('Centered');
-$img='http://r72.cooltext.com/rendered/cooltext261244938435107.png';
-$lul = $app->add(['Label','haHAA','image'=>$img]);
-$lul -> set(['massive'=>true]);
-
-
-$lul->set('omegalul');
-
-
-
-
-
-
-
-
-
+$button = $app->layout->add(['Button','REFRESH']);
+$button->link('index(lul)');
+if(isset($_GET['max'])){
+  $max = $_GET['max'];
+  $min = $_GET['min'];
+}else{
+  $max=100;
+  $min=1;
+  $med=round(($max+$min)/2);
+}
 
 
 
