@@ -11,15 +11,22 @@ if(isset($_GET['max'])){
   $min=1;
   $med=round(($max+$min)/2);
 }
+if(isset($_GET['nazhalnet'])){
+if(($min==$max) or ($max-$min==1)){
+  $label1=$app ->add(['Label','error','massive red']);
+}
+}
+
+
 $label=$app ->add(['Label','TVOE 4ISLO BOLSHE '.$med.' ?']);
 
 $button1=$app->add(['Button','DA']);
-$button1->link(['index(lul)','max'=>$max,'min'=>$med]);
+$button1->link(['index(lul)','max'=>$max,'min'=>$med,'nazhalnet'=>'rofl']);
 
 $button2=$app->add(['Button','NEJ']);
-$button2->link(['index(lul)','max'=>$med,'min'=>$min]);
+$button2->link(['index(lul)','max'=>$med,'min'=>$min,'nazhalnet'=>'rofl']);
 
-$button3=$app->add(['Button','O DA']);
+$button3=$app->add(['Button','da eto moe']);
 $button3->link(['pustoj','med'=>$med]);
 
 
