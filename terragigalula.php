@@ -23,3 +23,5 @@ $form->onSubmit(function($form) {
 }
 }
 );
+
+$label=$app->add(['Label','Хочу новое']);
