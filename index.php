@@ -1,27 +1,30 @@
 <?php
-require 'connection.php';
 
-$app = new \atk4\ui\App('Party');
+date_default_timezone_set('UTC');
+require 'vendor/autoload.php';
+
+$app = new \atk4\ui\App('index.phop');
 $app->initLayout('Centered');
+$app->layout->add(['Header', 'Paginator tracks its own position']);
+$app->add(['Paginator', 'total' => 40]);
+
+$app->add(['Header', 'Dynamic reloading']);
+$seg = $app->add(['View', 'ui' => 'blue segment']);
+$label = $seg->add(['Label']);
+$bb = $seg->add(['Paginator', 'total' => 50, 'range' => 2, 'reload' => $seg]);
+$label->addClass('blue ribbon');
+$label->set('Current page: '.$bb->page);
+
+$app->add(['Header', 'Local Sticky Usage']);
+$seg = $app->add(['View', 'ui' => 'blue segment']);
 
 
-$form = $app->layout->add('Form');
-$form->setModel(new Friend($db));
-/*$form->onSubmit(function($form) {
-  $form->model->save();
-  return $form->success('Record updated');
-});*/
+$month_paginator = $seg->add(['Paginator', 'total' => 12, 'range' => 3]);
+$seg->add(['ui'=>'hidden divider']);
+$day_paginator = $seg->add(['Paginator', 'total' => 31, 'range' => 3]);
+$seg->add(['ui'=>'hidden divider']);
+$label = $seg->add(['Label']);
+$label->addClass('orange');
 
-$form->onSubmit(function ($form) {
-  $form->model->save();
-  return new \atk4\ui\jsExpression('document.location = "index.php" ');
-});
-
-$app->add(['ui'=>'divider']);
-
-$grid = $app->layout->add('Grid');
-$grid->setModel(new Friend($db));
-$grid->addQuickSearch(['surname','phone_number','name']);
-
-$button=$app->add(['Button','Admin','inverted white']);
-$button->link(['check']);
+$a=$_GET['atk_centered_view_2_paginator'];
+$app->add(['Label',$a]);
