@@ -1,6 +1,6 @@
 <?php
 
-require 'vendor/autoload';
+require 'vendor/autoload.php';
 //require 'connection.php';
 
 $app = new \atk4\ui\App('Travel Agency');
