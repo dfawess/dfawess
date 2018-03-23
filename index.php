@@ -8,7 +8,7 @@ $app->initLayout('Centered');
 
 require 'visual.php';
 $name=$_ENV['slovo'];
-$lable=$app->add(['Lable',$name,'massive red']);
+$lable=$app->add(['Label',$name,'massive red']);
 
 //$form = $app->layout->add('Form');
 
