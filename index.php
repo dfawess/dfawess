@@ -1,6 +1,7 @@
 <?php
 
-require 'connection.php';
+require 'vendor/autoload';
+//require 'connection.php';
 
 $app = new \atk4\ui\App('Travel Agency');
 $app->initLayout('Centered');
