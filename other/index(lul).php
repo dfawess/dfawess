@@ -1,7 +1,9 @@
 <?php
+
 require 'vendor/autoload.php';
 $app = new \atk4\ui\App('index');
 $app->initLayout('Centered');
+
 if(isset($_GET['max'])){
   $max = $_GET['max'];
   $min = $_GET['min'];
@@ -14,6 +16,7 @@ if(isset($_GET['max'])){
 if(isset($_GET['nazhalnet'])){
 if(($min==$max) or ($max-$min==1)){
   $label1=$app ->add(['Label','error','massive red']);
+  $label1->link(['index(lul)']);
 }
 }
 
